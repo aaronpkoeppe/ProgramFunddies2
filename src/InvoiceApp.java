@@ -6,9 +6,12 @@ First Time Setup for Git:
   1. Initialize the repo: `git init`
   2. Add your remote url: `git remote add origin $url`
 
-Command Line:
+To Update Existing Repo:
   1. Make sure you're in the project folder: `pwd`
-  2. See if you have any changes: `git diff .`
+  2. See if you have any changes: `git status` or `git diff .`
+  3. Add your changes to a commit: `git add .`
+  4. Commit the files: `git commit -m "$message"`
+  5. Update remote github repo: `git push`
 */
 
 import java.util.Arrays;
@@ -26,7 +29,7 @@ public class InvoiceApp {
         Scanner sc = new Scanner(System.in);
 
         // perform invoice calculations until choice isn't equal to "y" or "Y"
-        String choice = "y";
+        String choice = "n";
         while (choice.equalsIgnoreCase("y")) {
 
             // create subtotal based on number of lines and user entries
