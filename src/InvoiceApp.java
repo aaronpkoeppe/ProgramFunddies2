@@ -21,63 +21,56 @@ public class InvoiceApp {
 
     @SuppressWarnings("resource")
     public static void main(String[] args) {
+        double discountPercent = 0.0;
+
+
         // welcome the user to the program
-        System.out.println("Welcome to the Invoice Total Calculator");
-        System.out.println();  // print a blank line
+        System.out.println("Welcome to the Invoice Total Calculator\n");
 
         // create a Scanner object named sc
         Scanner sc = new Scanner(System.in);
 
         // perform invoice calculations until choice isn't equal to "y" or "Y"
-        String choice = "n";
+        String choice = "y";
         while (choice.equalsIgnoreCase("y")) {
 
             // create subtotal based on number of lines and user entries
             System.out.println("enter number of line items: ");
-            int lines = sc.nextInt();
+            int lines = Integer.parseInt(sc.nextLine());
 
+            // creates for loop taking in number of items and item amounts
             double[] itemAmounts = new double[lines];
             for (int i = 0; i < lines; i++) {
                 System.out.println("Enter number #" + (i + 1) + " line items: ");
-                itemAmounts[i] = sc.nextDouble();
+                itemAmounts[i] = Double.parseDouble(sc.nextLine());
             }
 
             double total = Arrays.stream(itemAmounts).sum();
-            System.out.println(Arrays.toString(itemAmounts));
-            System.out.println(total);
-        }
+            System.out.printf("%20s: %, 10.2f\n", "subtotal", total);
 
+                    // calculate the discount amount and total
 
-
-            /*
-            System.out.print("Enter subtotal: ");
-            String input = sc.nextLine();
-            double subtotal = Double.parseDouble(input);
-            */
-
-        // calculate the discount amount and total
-            /*
-            if (itemTotal >= 200) {
+            if (total >= 200) {
                 discountPercent = .2;
-            } else if (itemTotal >= 100) {
+            } else if (total >= 100) {
                 discountPercent = .1;
             } else {
                 discountPercent = 0.0;
             }
-            double discountAmount = itemTotal * discountPercent;
-            double total = itemTotal - discountAmount;
+            double discountAmount = total * discountPercent;
+            double finalTotal = total - discountAmount;
 
             // display the discount amount and total
-            String message = "Discount percent: " + discountPercent + "\n"
-                    + "Discount amount: " + discountAmount + "\n"
-                    + "Invoice total: " + total + "\n";
-            System.out.println(message);
+            System.out.printf("%20s: %, 10.2f\n", "discount percent", discountPercent);
+            System.out.printf("%20s: %, 10.2f\n", "discount amount", discountAmount);
+            System.out.printf("%20s: %, 10.2f\n", "Invoice total ", finalTotal);
 
             // see if the user wants to continue
-            System.out.print("Continue? (y/n): ");
+            System.out.print("\nContinue? (y/n): ");
             choice = sc.nextLine();
             System.out.println();
-
-             */
+        }
     }
 }
+//ending message if choice is not "y"
+//  System.out.println("\ngoodbye, come back soon!");
