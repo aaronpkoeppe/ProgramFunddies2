@@ -1,4 +1,6 @@
-/* Aaron Koeppe
+/*
+Invoice calculator
+Aaron Koeppe
 January 26th, 2022
 https://github.com/aaronpkoeppe/ProgramFunddies2.git
 
@@ -25,7 +27,7 @@ public class InvoiceApp {
 
 
         // welcome the user to the program
-        System.out.println("Welcome to the Invoice Total Calculator\n");
+        System.out.println("Welcome to the Invoice Total Calculator V2\n");
 
         // create a Scanner object named sc
         Scanner sc = new Scanner(System.in);
@@ -48,7 +50,7 @@ public class InvoiceApp {
             double total = Arrays.stream(itemAmounts).sum();
             System.out.printf("%20s: %, 10.2f\n", "subtotal", total);
 
-                    // calculate the discount amount and total
+            // calculate the discount amount and total
 
             if (total >= 200) {
                 discountPercent = .2;
@@ -70,7 +72,6 @@ public class InvoiceApp {
             choice = sc.nextLine();
             System.out.println();
         }
+        System.out.println("goodbye, please come again!");
     }
 }
-//ending message if choice is not "y"
-//  System.out.println("\ngoodbye, come back soon!");
